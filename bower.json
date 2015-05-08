@@ -1,0 +1,23 @@
+{
+  "name": "angular-coding-exercise",
+  "version": "1.0.0",
+  "homepage": "https://github.com/GasStationTV/angular-coding-exercise",
+  "authors": [
+    "GSTV Developers <developers@gstv.com>"
+  ],
+  "description": "GSTV coding exercise for FE candidates",
+  "main": "index.js",
+  "license": "ICS",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "foundation-apps": "~1.1.0",
+    "bootstrap-sass": "~3.3.4"
+  }
+}
