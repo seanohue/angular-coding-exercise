@@ -1,15 +1,15 @@
 # GSTV FE Coding Exercise
 
-- [] System Requirements
-- [] Current Tech Stack Outline
-- [] Exercise Overview
+- [ ] System Requirements
+- [ ] Current Tech Stack Outline
+- [ ] Exercise Overview
 
 ## Jade
 Our templates are all written in [Jade](http://jade-lang.com/) - the [syntax](http://naltatis.github.io/jade-syntax-docs/#basics) is easier to read - especially with Angular templates - and it reduces the likelihood of destroying a layout by simply not including a closing tag.
 
 While Jade does not require a div tag prior to a class or ID declaration we add the div tag for the sake of clarity.
 
-** Original Jade Template **
+**Original Jade Template**
 ``` jade
 doctype html
 html
@@ -22,7 +22,7 @@ html
         input#bar.foo1.foo2
 ```
 
-** Compiled HTML **
+**Compiled HTML**
 ``` html
 <!DOCTYPE html>
 <html>
@@ -50,7 +50,7 @@ We loosely follow Hugo Giraudel's [Sass Guidelines](http://sass-guidelin.es/) - 
 ### Class Naming Conventions
 Our styles are written using [OOCSS](http://appendto.com/2014/04/oocss/) principles specifically using  [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) methodology. This promotes a separation of content from context leading to highly reusable styles.
 
-** BEM naming conventions **
+**BEM naming conventions**
 ``` sass
 .block {}
 .block__element {}
@@ -63,7 +63,7 @@ Our styles are written using [OOCSS](http://appendto.com/2014/04/oocss/) princip
 .media__body {}
 ```
 
-** BEM naming conventions used in markup **
+**BEM naming conventions used in markup**
 ``` jade
 div.media
   img.media__img--rev(src='logo.png" alt='Foo Corp logo')
