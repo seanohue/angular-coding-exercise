@@ -1,0 +1,22 @@
+{
+  "name": "angular-coding-exercise",
+  "version": "1.0.0",
+  "description": "GSTV coding exercise for FE candidates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GasStationTV/angular-coding-exercise.git"
+  },
+  "keywords": [
+    "Angular"
+  ],
+  "author": "Aaron Olson <aaron.olson@gstv.com> (http://www.gstv.com/)",
+  "license": "ICS",
+  "bugs": {
+    "url": "https://github.com/GasStationTV/angular-coding-exercise/issues"
+  },
+  "homepage": "https://github.com/GasStationTV/angular-coding-exercise"
+}
