@@ -4,6 +4,33 @@
 - [ ] Current Tech Stack Outline
 - [ ] Exercise Overview
 
+## Build System
+
+We use [Webpack](http://webpack.github.io/) for our build system, as it provides a lot of built-in functionality that would require more boilerplate with something like [Browserify](http://browserify.org/). Some key features that we use:
+
+* Bundle splitting (vendor dependencies are compiled to a separate file).
+* Non-JS imports. Now you can directly require `.jade` or `.scss`!
+* Live reloading (with hot module replacement). To the previous point, webpack enables watchers for all file types so you don't have to go through the extra effort of configuring them yourself.
+* Convenient development server, with an iframe option (called "inlining") that displays the status of your bundle directly in the browser.
+
+So how do you use it? While you can directly run it from the CLI via `webpack`, it's recommended to use one of our npm scripts:
+
+### `npm run build`
+Runs the webpack build system with your current node environment. This will compile your application and write it to disk (into `~/dist`).
+
+### `npm run build:prod`
+Runs the production webpack build with `NODE_ENV=production`. This will enable functionality such as minification and dead/unused code removal.
+
+### `npm run dev`
+Runs the webpack development server at `http://localhost:3000` (inlined at `http://localhost:3000/webpack-dev-server/`). The application is served from memory and watchers are automatically configured to enable livereload.
+
+Note: if you have trouble viewing the inlined version, make sure you include the trailing slash after /webpack-dev-server/.
+
+### `npm run dev:debug`
+Same as `npm run dev`, but includes verbose debugging information.
+
+The root index.html file can be found in `~/app/index.html`. This file gets compiled to `~/dist/index.html` during the webpack build process in order to resolve dynamic file names.
+
 ## Jade
 Our templates are all written in [Jade](http://jade-lang.com/) - the [syntax](http://naltatis.github.io/jade-syntax-docs/#basics) is easier to read - especially with Angular templates - and it reduces the likelihood of destroying a layout by simply not including a closing tag.
 

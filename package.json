@@ -4,6 +4,10 @@
   "description": "GSTV coding exercise for FE candidates",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "build:prod": "NODE_ENV=production webpack",
+    "dev": "webpack-dev-server --port 3000 --hot --inline --colors --no-info --quiet",
+    "dev:debug" : "webpack-dev-server --port 3000 --hot --inline --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +22,20 @@
   "bugs": {
     "url": "https://github.com/GasStationTV/angular-coding-exercise/issues"
   },
-  "homepage": "https://github.com/GasStationTV/angular-coding-exercise"
+  "homepage": "https://github.com/GasStationTV/angular-coding-exercise",
+  "devDependencies": {
+    "babel": "^5.2.15",
+    "babel-core": "^5.2.15",
+    "babel-loader": "^5.0.0",
+    "css-loader": "^0.12.0",
+    "html-webpack-plugin": "^1.3.0",
+    "jshint": "^2.7.0",
+    "jshint-loader": "^0.8.3",
+    "jshint-loader-stylish": "^1.0.0",
+    "node-sass": "^2.1.1",
+    "sass-loader": "^0.6.0",
+    "style-loader": "^0.12.1",
+    "webpack": "^1.8.11",
+    "webpack-dev-server": "^1.8.2"
+  }
 }
