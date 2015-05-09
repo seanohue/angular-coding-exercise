@@ -6,11 +6,11 @@
 
 ## Build System
 
-We use [Webpack](http://webpack.github.io/) for our build system, as it provides a lot of built-in functionality that requires more boilerplate with something like [Browserify](http://browserify.org/). Some key features that we use:
+We use [Webpack](http://webpack.github.io/) for our build system, as it provides a lot of built-in functionality that would require more boilerplate with something like [Browserify](http://browserify.org/). Some key features that we use:
 
 * Bundle splitting (vendor dependencies are compiled to a separate file).
 * Non-JS imports. Now you can directly require `.jade` or `.scss`!
-* Live reloading (with hot module replacement). To the previous point, these watchers are enabled for all file types, so you don't have to go through the extra effort of setting up watchers for all file types.
+* Live reloading (with hot module replacement). To the previous point, webpack enables watchers for all file types so you don't have to go through the extra effort of configuring them yourself.
 * Convenient development server, with an iframe option (called "inlining") that displays the status of your bundle directly in the browser.
 
 So how do you use it? While you can directly run it from the CLI via `webpack`, it's recommended to use one of our npm scripts:
