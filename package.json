@@ -35,8 +35,8 @@
     "jshint-loader": "^0.8.3",
     "jshint-loader-stylish": "^1.0.0",
     "ng-annotate-webpack-plugin": "^0.1.2",
-    "node-sass": "^2.1.1",
-    "sass-loader": "^0.6.0",
+    "node-sass": "^3.0.0",
+    "sass-loader": "^1.0.1",
     "style-loader": "^0.12.1",
     "webpack": "^1.8.11",
     "webpack-dev-server": "^1.8.2"
