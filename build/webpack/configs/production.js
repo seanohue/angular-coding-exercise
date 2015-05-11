@@ -4,6 +4,9 @@ const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = exports = {
   plugins : config.plugins.concat([
+    new ngAnnotatePlugin({
+      add: true
+    }),
     new webpack.optimize.UglifyJsPlugin({
       output : {
         'comments'  : false
@@ -12,9 +15,6 @@ module.exports = exports = {
         'unused'    : true,
         'dead_code' : true
       }
-    }),
-    new ngAnnotatePlugin({
-      add: true
     })
   ])
 };
