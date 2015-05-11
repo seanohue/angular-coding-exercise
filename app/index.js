@@ -9,10 +9,8 @@
 //
 // As a result, a lot of design decisions are made with the intent of
 // making as few assumptions as possible, thereby allowing you to extend
-// the application as you see fit. For example, we personally use
-// UI Router in our application, but don't want to make assumptions
-// about your preferences. This is your sandbox, we've provided some
-// basic tools but want to see how far you can take it. If you have
+// the application as you see fit. This is your sandbox, we've provided
+// some basic tools but want to see how far you can take it. If you have
 // any questions about what exactly the build system encompasses, you
 // can refer to the project's README.
 
@@ -33,6 +31,7 @@
 // pieces such as Angular and utilities like lodash or Ramda.
 // ------------------------------------
 import angular from 'angular';
+import 'angular-ui-router';
 
 // ------------------------------------
 // Global Style Imports
@@ -40,9 +39,29 @@ import angular from 'angular';
 import './app.scss';
 
 // ------------------------------------
+// Core Component Imports
+// ------------------------------------
+// If ES6 import statements are unfamiliar, this is equivalent to:
+// var gsWelcomeModule = require('./welcome').name;
+// ------------------------------------
+import { name as gsWelcomeModule } from './welcome';
+
+// ------------------------------------
 // Application Definition
 // ------------------------------------
-angular.module('GSTVApp', [])
-  .run(() => {
-    console.log('GSTV Angular application is running...');
-  });
+function config ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+    .state('welcome', {
+      url : '/',
+      template : '<gs-welcome title="GSTV Angular App"></gs-welcome>'
+    });
+}
+config.$inject = ['$stateProvider', '$urlRouterProvider'];
+
+angular.module('GSTVApp', [
+  'ui.router',
+  gsWelcomeModule
+])
+  .config(config);

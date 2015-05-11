@@ -53,6 +53,10 @@ module.exports = exports = {
       test : [/\.scss?$/],
       loaders : ['style', 'css', 'sass'],
       include : resolve('app')
+    }, {
+      test : [/\.jade?$/],
+      loaders : ['jade'],
+      include : resolve('app')
     }]
   },
   jshint: {
