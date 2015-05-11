@@ -14,7 +14,7 @@ module.exports = exports = {
     app : [
       resolve('app/index')
     ],
-    // vendor : ['react']
+    vendor : ['angular', 'angular-ui-router']
   },
   output : {
     path : resolve('dist'),
@@ -46,12 +46,16 @@ module.exports = exports = {
       loader: 'jshint'
     }],
     loaders : [{
-      test : [/\.(js|jsx)?$/],
+      test : [/\.js?$/],
       loaders : ['babel'],
       include : resolve('app')
     }, {
       test : [/\.scss?$/],
       loaders : ['style', 'css', 'sass'],
+      include : resolve('app')
+    }, {
+      test : [/\.jade?$/],
+      loaders : ['jade'],
       include : resolve('app')
     }]
   },

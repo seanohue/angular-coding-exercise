@@ -22,12 +22,12 @@ Runs the webpack build system with your current node environment. This will comp
 Runs the production webpack build with `NODE_ENV=production`. This will enable functionality such as minification and dead/unused code removal.
 
 ### `npm run dev`
-Runs the webpack development server at `http://localhost:3000` (inlined at `http://localhost:3000/webpack-dev-server/`). The application is served from memory and watchers are automatically configured to enable livereload.
+Runs the webpack development server at `http://localhost:3000` (inlined at `http://localhost:3000/webpack-dev-server/`). The application is served from memory and file watchers are automatically enabled for livereload.
 
 Note: if you have trouble viewing the inlined version, make sure you include the trailing slash after /webpack-dev-server/.
 
-### `npm run dev:debug`
-Same as `npm run dev`, but includes verbose debugging information.
+### `npm run dev:quiet`
+Same as `npm run dev`, but hides verbose debugging information.
 
 The root index.html file can be found in `~/app/index.html`. This file gets compiled to `~/dist/index.html` during the webpack build process in order to resolve dynamic file names.
 
