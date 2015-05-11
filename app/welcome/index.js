@@ -5,6 +5,11 @@ import './style.scss';
 function gsWelcomeController () {
   const dm = this;
 
+  dm.init = function () {
+    console.log(`Welcome to the ${dm.title}!`);
+  };
+
+  dm.init();
 }
 
 function gsWelcome () {

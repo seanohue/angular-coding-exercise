@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack",
     "build:prod": "NODE_ENV=production webpack",
-    "dev": "webpack-dev-server --port 3000 --hot --inline --colors --no-info --quiet",
-    "dev:debug": "webpack-dev-server --port 3000 --hot --inline --colors",
+    "dev": "webpack-dev-server --port 3000 --hot --inline --colors",
+    "dev:quiet": "webpack-dev-server --port 3000 --hot --inline --colors --no-info --quiet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
