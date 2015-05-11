@@ -49,6 +49,7 @@ import { name as gsWelcomeModule } from './welcome';
 // ------------------------------------
 // Application Definition
 // ------------------------------------
+/* @ngInject */
 function config ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
@@ -58,7 +59,6 @@ function config ($stateProvider, $urlRouterProvider) {
       template : '<gs-welcome title="GSTV Angular App"></gs-welcome>'
     });
 }
-config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 angular.module('GSTVApp', [
   'ui.router',
