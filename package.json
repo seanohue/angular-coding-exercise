@@ -4,6 +4,7 @@
   "description": "GSTV coding exercise for FE candidates",
   "main": "index.js",
   "scripts": {
+    "setup": "npm install; bower install",
     "build": "webpack",
     "build:prod": "NODE_ENV=production webpack",
     "dev": "webpack-dev-server --port 3000 --hot --inline --colors",
