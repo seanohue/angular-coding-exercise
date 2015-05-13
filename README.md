@@ -65,7 +65,7 @@ Note: if you have trouble viewing the inlined version, make sure you include the
 Same as `npm run dev`, but hides verbose debugging information.
 
 ## Application Structure
-Our goal is to give you a working application out of the box without restricting you to a specific architecture. Howerver, there are some key design decisions to note:
+Our goal is to give you a working application out of the box without restricting you to a specific architecture. However, there are some key design decisions to note:
 
 * The Webpack development server will point to `~/app/index.html`. This is compiled on the fly - or to disk if you use the non-development build script. This is important because bundled files append a dynamic query string hash for cache busting.
 * The application entry point is in `~/app/index.js`, and contains all core vendor dependencies. Please reference that file for additional documentation.
