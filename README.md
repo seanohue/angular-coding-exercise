@@ -1,40 +1,52 @@
 # GSTV FE Coding Exercise
 
+1. [Exercise Overview](#exercise-overview)
 1. [System Requirements](#system-requirements)
 1. [Getting Started](#getting-started)
+1. [Version Control](#version-control)
 1. [Build System](#build-system)
 1. [Application Architecture](#application-architecture)
 1. [Jade](#jade)
 1. [Sass](#sass)
-1. [Version Control](#version-control)
-1. [Exercise Overview](#exercise-overview)
+
+## Exercise Overview
+Build us anything you want using the Marvel Comics API. Seriously, that is the only direction. However, we do have a few guidelines around submitting your assignment and some suggestions so continue reading.
 
 ## System Requirements
 
-* Node.js or IO.js
-* Bower
+* Node.js `^0.10.36`_or_ IO.js `^2.0.1`
+* Bower `^1.3.2`
 
 ## Getting Started
 
-To get up and running, all you need to do is install the project dependencies with npm and bower. You can either run our `npm run setup` wrapper or do this manually with:
+Sign up for a [Marvel API Key](https://developer.marvel.com/pleasesignin) to get a public and private key.
 
-```
-npm install
-bower install
+Install the project dependencies with npm and bower to get the sandbox running. You can either run our `npm run setup` wrapper or do this manually with:
+
+``` shell
+npm install && bower install
 ```
 
-With this done, you should have everything you need to run the application; you can now run `npm run dev` to spin up the webpack development server at `http://localhost:3000`. We recommend that you check out the documentation below to learn more about the build system, application structure, styles, and more.
+Once everything is installed, you should have everything you need to run the application. Run `npm run dev` to spin up the Webpack development server at `http://localhost:3000`. We recommend that you check out our documentation before diving in to the exercise.
+
+## Version Control
+### GitFlow and GithubFlow
+We use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) on a daily basis - the allows us to build quality control in to our development, QA and deployment process.
+
+We are asking that you use a modified [Github Flow](https://guides.github.com/introduction/flow/) - sometimes referred to as a [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) - methodology instead of GitFlow. Conceptually, GitFlow and Github flow are similar.
+
+Please fork our repository and use a feature branch workflow while developing your functionality. When you are ready to submit your work make a pull request against our repository.
 
 ## Build System
 
-We use [Webpack](http://webpack.github.io/) for our build system, as it provides a lot of built-in functionality that would require more boilerplate with something like [Browserify](http://browserify.org/). Some key features that we use:
+We choose [Webpack](http://webpack.github.io/) as the build system because it provides a lot of built-in functionality that would require more boilerplate with something like [Browserify](http://browserify.org/). Some key features we use include:
 
-* Bundle splitting (vendor dependencies are compiled to a separate file).
-* Non-JS imports. Now you can directly require `.jade` or `.scss`!
-* Live reloading (with hot module replacement). Webpack enables watchers for all file types so you don't have to go through the extra effort yourself.
-* Convenient development server, with an iframe option (known as "inlining") that displays the status of your bundle directly in the browser.
-* Angular Annotate ([ng-annotate](https://github.com/olov/ng-annotate)). Use `/* @ngInject */` to enable automatic injection annotations.
-* ES6 support thanks to Babel.
+* **Bundle splitting.** Vendor dependencies are compiled to a separate file.
+* **Non-JS imports.** You can directly require `.jade` or `.scss`!
+* **Live reloading with hot module replacement.** Webpack enables watchers for all file types so you don't have to go through the extra effort yourself.
+* **Convenient development server**. This also provided an iframe option - known as "inlining" - that displays the status of your bundle directly in the browser.
+* **Angular Annotate ([ng-annotate](https://github.com/olov/ng-annotate)).** Use `/* @ngInject */` to enable automatic injection annotations.
+* **ES6 support.** Thanks Babel.
 
 So how do you use it? While you can directly run it from the CLI via `webpack`, it's recommended to use one of our npm scripts:
 
@@ -53,16 +65,15 @@ Note: if you have trouble viewing the inlined version, make sure you include the
 Same as `npm run dev`, but hides verbose debugging information.
 
 ## Application Structure
-Our goal with this project is to give you a working application out of the box without restricting you to a specific architecture. There are some key design decisions to note, however:
+Our goal is to give you a working application out of the box without restricting you to a specific architecture. However, there are some key design decisions to note:
 
-The Webpack development server will point to `~/app/index.html`, which will be compiled on the fly (or to disk if you use the non-development build script). This is important because bundled files append a dynamic query string hash for cache busting.
-
-The application entry point is in `~/app/index.js`, and contains all core vendor dependencies. Please reference that file for additional documentation.
+* The Webpack development server will point to `~/app/index.html`. This is compiled on the fly - or to disk if you use the non-development build script. This is important because bundled files append a dynamic query string hash for cache busting.
+* The application entry point is in `~/app/index.js`, and contains all core vendor dependencies. Please reference that file for additional documentation.
 
 ## Jade
-Our templates are all written in [Jade](http://jade-lang.com/) - the [syntax](http://naltatis.github.io/jade-syntax-docs/#basics) is easier to read - especially with Angular templates - and it reduces the likelihood of destroying a layout by simply not including a closing tag.
+Our templates are all written in [Jade](http://jade-lang.com/) - we find the [syntax](http://naltatis.github.io/jade-syntax-docs/#basics) easier to read - especially with Angular templates. We would rather be eating obscene amounts of [Chicken Shack](http://www.chickenshack.com/) than hunting down a missing closing tag. That is why Jade is our friend.
 
-While Jade does not require a div tag prior to a class or ID declaration we add the div tag for the sake of clarity.
+While Jade does not require a `div` prior to a class or ID declaration we add the `div` for the sake of clarity.
 
 **Original Jade Template**
 ``` jade
@@ -97,13 +108,13 @@ html
 
 ## Sass
 ### On Node Sass
-We rely on Node Sass to compile our stylesheets because of its speed. However, because there is not currently feature parity between Ruby Sass and LibSass so not all documented features are supported. Hugo Giraudel's [Sass Compatibility](http://sass-compatibility.github.io/) project is the best way to identify these differences.
+We rely on Node Sass to compile our stylesheets because of its speed. However, because there is not currently feature parity between Ruby Sass and LibSass so not all documented features are supported. Hugo Giraudel's [Sass Compatibility](http://sass-compatibility.github.io/) project is the best way to identify these differences. @acolson spends way too much time following this.
 
 ### Sass Standards
 We loosely follow Hugo Giraudel's [Sass Guidelines](http://sass-guidelin.es/) - particularly his thoughts on code clarity and avoiding [nesting selectors](http://sass-guidelin.es/#selector-nesting) unless absolutely necessary.
 
 ### Class Naming Conventions
-Our styles are written using [OOCSS](http://appendto.com/2014/04/oocss/) principles specifically using  [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) methodology. This promotes a separation of content from context leading to highly reusable styles.
+Our styles are written using [OOCSS](http://appendto.com/2014/04/oocss/) principles - specifically   [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) methodology. This promotes a separation of content from context leading to highly reusable styles and hopefully prevents us from using ```!important``` which is the work of the devil.
 
 **BEM naming conventions**
 ``` sass
@@ -126,13 +137,3 @@ div.media
       h3.alpha Welcome to Foo Corp
       p.lede Foo Corp is the best, seriously!
 ```
-
-## Version Control
-### GitFlow and GithubFlow
-We use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) as a way to build quality control in to our development, QA and deployment process.
-
-For this exercise we are asking that you use a modified [Github Flow](https://guides.github.com/introduction/flow/) or sometimes referred to as a [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) methodology instead of GitFlow - conceptually GitFlow and Github flow are similar.
-
-Please fork our angular-coding-exercise and use a feature branch workflow while developing your functionality. When you are ready to submit your work make a pull request against our angular-coding-exercise repository.
-
-## Exercise Overview
