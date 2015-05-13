@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // path helpers
@@ -29,6 +30,7 @@ module.exports = exports = {
       '__PROD__' : env === 'production',
       '__DEV__'  : env === 'development'
     }),
+    new ExtractTextPlugin('[name].[contenthash].css'),
     new HtmlWebpackPlugin({
       template : resolve('app/index.html'),
       hash : true
@@ -51,7 +53,11 @@ module.exports = exports = {
       include : resolve('app')
     }, {
       test : [/\.scss?$/],
-      loaders : ['style', 'css', 'sass'],
+      loader : ExtractTextPlugin.extract('style-loader', [
+        'css-loader',
+        'autoprefixer?browsers=last 2 version',
+        'sass-loader'
+      ].join('!')),
       include : resolve('app')
     }, {
       test : [/\.jade?$/],
