@@ -53,7 +53,11 @@ module.exports = exports = {
       include : resolve('app')
     }, {
       test : [/\.scss?$/],
-      loader : ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+      loader : ExtractTextPlugin.extract('style-loader', [
+        'css-loader',
+        'autoprefixer?browsers=last 2 version',
+        'sass-loader'
+      ].join('!')),
       include : resolve('app')
     }, {
       test : [/\.jade?$/],
