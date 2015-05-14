@@ -149,3 +149,6 @@ We have a work in progress [style guide](https://github.com/davezuko/gstv-javasc
 
 ### Build error: `libsass` bindings not found
 This error is generally caused by an out-of date (or non-existent) node-sass library. Check your global node-sass version if you already have it installed and make sure it satisfies version `^3.1.0`. If your global version meets this requirement and you're still having issues, try to install the package locally with `npm install node-sass`.
+
+### Cannot find inlined Webpack development server
+In order to access the inlined version of the development server, make sure you're including the trailing slash after "webpack-dev-server" in the url: `http://localhost:3000/webpack-dev-server/`.
