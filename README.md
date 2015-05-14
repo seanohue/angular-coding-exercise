@@ -15,12 +15,10 @@
 Build us anything you want using the Marvel Comics API. Seriously, that is the only direction. However, we do have a few guidelines around submitting your assignment and some suggestions so continue reading.
 
 ## System Requirements
-
 * Node.js `^0.10.36` _or_ IO.js `^2.0.1`
 * Bower `^1.3.2`
 
 ## Getting Started
-
 Sign up for a [Marvel API Key](https://developer.marvel.com/pleasesignin) to get a public and private key.
 
 Install the project dependencies with npm and bower to get the sandbox running. You can either run our `npm run setup` wrapper or do this manually with:
@@ -29,18 +27,17 @@ Install the project dependencies with npm and bower to get the sandbox running. 
 npm install && bower install
 ```
 
-Once those are complete, you should have everything you need to run the application. Run `npm run dev` to spin up the Webpack development server at `http://localhost:3000`. We recommend that you check out the rest of the documentation before diving in to the exercise.
+Once these are complete, you should have everything you need to run the application. Run `npm run dev` to spin up the Webpack development server at `http://localhost:3000`. We recommend that you check out the rest of the documentation before diving into the exercise.
 
 ## Version Control
 ### GitFlow and GithubFlow
-We use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) on a daily basis - this allows us to build quality control in to our development, QA and deployment process.
+We use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) on a daily basis - this allows us to build quality control into our development, QA and deployment process.
 
 We are asking that you use a modified [Github Flow](https://guides.github.com/introduction/flow/) - sometimes referred to as a [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) - methodology instead of GitFlow. Conceptually, GitFlow and Github flow are similar.
 
 Please fork our repository and use a feature branch workflow while developing your functionality. When you are ready to submit your work make a pull request against our repository.
 
 ## Build System
-
 We choose [Webpack](http://webpack.github.io/) as the build system because it provides a lot of built-in functionality that would require more boilerplate with something like [Browserify](http://browserify.org/). Some key features we use include:
 
 * **Bundle splitting.** Vendor dependencies are compiled to a separate file.
@@ -141,12 +138,10 @@ div.media
 ```
 
 ## JavaScript
-
 ### Standards
 We have a work in progress [style guide](https://github.com/davezuko/gstv-javascript-standards) that you can refer to. We don't expect you to strictly adhere to these standards, but they may help provide insight into how our JavaScript is generally structured.
 
 ## Troubleshooting
-
 ### Build error: `libsass` bindings not found
 This error is generally caused by an out-of date (or non-existent) node-sass library. Check your global node-sass version if you already have it installed and make sure it satisfies version `^3.1.0`. If your global version meets this requirement and you're still having issues, try to install the package locally with `npm install node-sass`.
 
