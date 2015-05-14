@@ -8,13 +8,15 @@
 1. [Application Architecture](#application-architecture)
 1. [Jade](#jade)
 1. [Sass](#sass)
+1. [JavaScript](#javascript)
+1. [Troubleshooting](#troubleshooting)
 
 ## Exercise Overview
 Build us anything you want using the Marvel Comics API. Seriously, that is the only direction. However, we do have a few guidelines around submitting your assignment and some suggestions so continue reading.
 
 ## System Requirements
 
-* Node.js `^0.10.36`_or_ IO.js `^2.0.1`
+* Node.js `^0.10.36` _or_ IO.js `^2.0.1`
 * Bower `^1.3.2`
 
 ## Getting Started
@@ -27,11 +29,11 @@ Install the project dependencies with npm and bower to get the sandbox running. 
 npm install && bower install
 ```
 
-Once everything is installed, you should have everything you need to run the application. Run `npm run dev` to spin up the Webpack development server at `http://localhost:3000`. We recommend that you check out our documentation before diving in to the exercise.
+Once those are complete, you should have everything you need to run the application. Run `npm run dev` to spin up the Webpack development server at `http://localhost:3000`. We recommend that you check out the rest of the documentation before diving in to the exercise.
 
 ## Version Control
 ### GitFlow and GithubFlow
-We use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) on a daily basis - the allows us to build quality control in to our development, QA and deployment process.
+We use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) on a daily basis - this allows us to build quality control in to our development, QA and deployment process.
 
 We are asking that you use a modified [Github Flow](https://guides.github.com/introduction/flow/) - sometimes referred to as a [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) - methodology instead of GitFlow. Conceptually, GitFlow and Github flow are similar.
 
@@ -59,7 +61,7 @@ Runs the production webpack build with `NODE_ENV=production`. This will enable f
 #### `npm run dev`
 Runs the webpack development server at `http://localhost:3000` (inlined at `http://localhost:3000/webpack-dev-server/`). The application is served from memory and file watchers are automatically enabled for livereload.
 
-Note: if you have trouble viewing the inlined version, make sure you include the trailing slash after /webpack-dev-server/.
+**Note**: If you don't know which of these you should be using, it's probably `npm run dev`.
 
 #### `npm run dev:quiet`
 Same as `npm run dev`, but hides verbose debugging information.
@@ -71,7 +73,7 @@ Our goal is to give you a working application out of the box without restricting
 * The application entry point is in `~/app/index.js`, and contains all core vendor dependencies. Please reference that file for additional documentation.
 
 ## Jade
-Our templates are all written in [Jade](http://jade-lang.com/) - we find the [syntax](http://naltatis.github.io/jade-syntax-docs/#basics) easier to read - especially with Angular templates. We would rather be eating obscene amounts of [Chicken Shack](http://www.chickenshack.com/) than hunting down a missing closing tag. That is why Jade is our friend.
+Our templates are all written in [Jade](http://jade-lang.com/) - we find the [syntax](http://naltatis.github.io/jade-syntax-docs/#basics) easier to read, especially with Angular templates. We would rather be eating obscene amounts of [Chicken Shack](http://www.chickenshack.com/) than hunting down a missing closing tag. That is why Jade is our friend.
 
 While Jade does not require a `div` prior to a class or ID declaration we add the `div` for the sake of clarity.
 
@@ -108,7 +110,7 @@ html
 
 ## Sass
 ### On Node Sass
-We rely on Node Sass to compile our stylesheets because of its speed. However, because there is not currently feature parity between Ruby Sass and LibSass so not all documented features are supported. Hugo Giraudel's [Sass Compatibility](http://sass-compatibility.github.io/) project is the best way to identify these differences. @acolson spends way too much time following this.
+We rely on Node Sass to compile our stylesheets because of its speed. However, because there is not currently feature parity between Ruby Sass and LibSass not all documented features are supported. Hugo Giraudel's [Sass Compatibility](http://sass-compatibility.github.io/) project is the best way to identify these differences. @acolson spends way too much time following this.
 
 ### Sass Standards
 We loosely follow Hugo Giraudel's [Sass Guidelines](http://sass-guidelin.es/) - particularly his thoughts on code clarity and avoiding [nesting selectors](http://sass-guidelin.es/#selector-nesting) unless absolutely necessary.
@@ -137,3 +139,13 @@ div.media
       h3.alpha Welcome to Foo Corp
       p.lede Foo Corp is the best, seriously!
 ```
+
+## JavaScript
+
+### Standards
+We have a work in progress [style guide](https://github.com/davezuko/gstv-javascript-standards) that you can refer to. We don't expect you to strictly adhere to these standards, but they may help provide insight into how our JavaScript is generally structured.
+
+## Troubleshooting
+
+### Build error: `libsass` bindings not found
+This error is generally caused by an out-of date (or non-existent) node-sass library. Check your global node-sass version if you already have it installed and make sure it satisfies version `^3.1.0`. If your global version meets this requirement and you're still having issues, try to install the package locally with `npm install node-sass`.
