@@ -21,7 +21,16 @@ Build us anything you want using the Marvel Comics API. Seriously, that is the o
 ## Getting Started
 Sign up for a [Marvel API Key](https://developer.marvel.com/pleasesignin) to get a public key. You only need the private key if you plan to proxy requests from a custom server.
 
-We've created a sample service that will automatically handle requests to the Marvel API, but it needs access to your public authentication key. With your recently-acquired keys, create a file `marvel.auth.js` in `~/app/config/marvel.auth.js` and insert the following:
+You'll then need to add `localhost` to the list of authorized referrers in your Marvel developer account. To do this, head to `https://developer.marvel.com/account`. Here you'll see your public and private keys, rate limit, and authorized referrers.
+
+<p align="center">
+  <a href="https://developer.marvel.com/account">
+    <img src="https://raw.githubusercontent.com/GasStationTV/angular-coding-exercise/docs/images/authorized-referrers.png" style="width:75%;">
+  </a>
+</p>
+
+
+Now for the actual application. We've created a sample service in the Angular application - `~/app/services/marvel` - that will automatically handle requests to the Marvel API, but it needs access to your public authentication keys. With your recently-acquired keys, create a file `marvel.auth.js` in `~/app/config/marvel.auth.js` and insert the following:
 
 ```js
 const AUTH_KEYS = new Map();
