@@ -46,15 +46,12 @@ import './app.scss';
 // var gsWelcomeModule = require('./welcome').name;
 // ------------------------------------
 import { name as gsWelcomeModule } from './welcome';
-import MarvelInterceptor from './services/marvel/interceptor';
 
 // ------------------------------------
 // Application Definition
 // ------------------------------------
 /* @ngInject */
-function config ($httpProvider, $stateProvider, $urlRouterProvider) {
-  $httpProvider.interceptors.push(MarvelInterceptor);
-
+function config ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('welcome', {
       url : '/',

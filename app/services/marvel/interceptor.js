@@ -13,7 +13,7 @@ export default () => {
   } else {
     console.warn([
       'Could not find Marvel API keys. Please make sure these are available',
-      'within ~/app/config/marvel-auth. See the application README for',
+      'within ~/app/config/marvel.auth.js -- See the application README for',
       'more details on registering and configuring the Marvel API.'
     ].join(' '));
     return {};
