@@ -19,9 +19,21 @@ Build us anything you want using the Marvel Comics API. Seriously, that is the o
 * Bower `^1.3.2`
 
 ## Getting Started
-Sign up for a [Marvel API Key](https://developer.marvel.com/pleasesignin) to get a public and private key.
+Sign up for a [Marvel API Key](https://developer.marvel.com/pleasesignin) to get a public key. You only need the private key if you plan to proxy requests from a custom server.
 
-Install the project dependencies with npm and bower to get the sandbox running. You can either run our `npm run setup` wrapper or do this manually with:
+We've created a sample service that will automatically handle requests to the Marvel API, but it needs access to your public authentication key. With your recently-acquired keys, create a file `marvel.auth.js` in `~/app/config/marvel.auth.js` and insert the following:
+
+```js
+const AUTH_KEYS = new Map();
+
+AUTH_KEYS.set('public', '<YOUR_PUBLIC_KEY_HERE>');
+
+export default AUTH_KEYS;
+```
+
+**Note:** This file is .gitignored so you don't have to worry about accidentally committing it.
+
+Next, install the project dependencies with npm and bower to get the sandbox running. You can either run our `npm run setup` wrapper or do this manually with:
 
 ``` shell
 npm install && bower install
