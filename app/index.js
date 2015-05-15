@@ -32,6 +32,7 @@
 // ------------------------------------
 import angular from 'angular';
 import 'angular-ui-router';
+import 'babel/polyfill';
 
 // ------------------------------------
 // Global Style Imports
@@ -45,19 +46,21 @@ import './app.scss';
 // var gsWelcomeModule = require('./welcome').name;
 // ------------------------------------
 import { name as gsWelcomeModule } from './welcome';
+import MarvelInterceptor from './services/marvel/interceptor';
 
 // ------------------------------------
 // Application Definition
 // ------------------------------------
 /* @ngInject */
-function config ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+function config ($httpProvider, $stateProvider, $urlRouterProvider) {
+  $httpProvider.interceptors.push(MarvelInterceptor);
 
   $stateProvider
     .state('welcome', {
       url : '/',
       template : '<gs-welcome title="GSTV Angular App"></gs-welcome>'
     });
+  $urlRouterProvider.otherwise('/');
 }
 
 angular.module('GSTVApp', [
