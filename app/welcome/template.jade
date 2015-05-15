@@ -1,1 +1,10 @@
-h1.welcome Welcome to the {{ dm.title }}!
+div.welcome
+  h1.welcome__title Welcome to the {{ dm.title }}!
+  div.welcome__body
+    p(ng-show='!dm.connection.complete')
+      span.log-item.log-item--pending Attempting to connect to the Marvel API...
+    p(ng-show='dm.connection.complete')
+      span.log-item.log-item--success(ng-show='dm.connection.success') Successfully connected to the Marvel API.
+      span.log-item.log-item--error(ng-show='dm.connection.error') There was an error reaching the Marvel API.
+      
+  
