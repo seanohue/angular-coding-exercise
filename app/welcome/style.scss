@@ -1,42 +1,15 @@
-.welcome {
-  text-align: center;
-}
+// Remember to always import the base stylesheets to include any global Sass
+// variables that you may need in order to make your styles as DRY as possible
+@import '../stylesheets/base';
 
-.log-item {
-  $size: 1rem;
 
   position: relative;
   display: inline-block;
 
-  &:before {
-    $icon-ratio: .5;
-    $icon-size: $size * $icon-ratio;
 
-    content: '';
-    position: absolute;
-    top: $icon-size * $icon-ratio;
-    left: -($icon-size * 1.75);
-    height: $icon-size;
-    width: $icon-size;
-    border-radius: 100%;
-    background: blue;
-  }
 
-  &--pending {
-    &:before {
-      background: yellow;
     }
   }
 
-  &--success {
-    &:before {
-      background: rgb(45, 224, 45);
     }
   }
-
-  &--error {
-    &:before {
-      background: #FD4763;
-    }
-  }
-}

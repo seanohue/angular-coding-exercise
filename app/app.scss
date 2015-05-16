@@ -1,4 +1,11 @@
-// sample global .scss file
-html, body {
-  transform: translate3d(0,0,0); // sample for autoprefixer
-}
+// =============================================================================
+// Dependencies - Custom
+// =============================================================================
+
+// Remember to import stylesheets/base if you need to include any global Sass
+// variables that you create. This is necesary because Webpack does not use a
+// traditional load order in the asset pipeline
+// @link http://bensmithett.com/smarter-css-builds-with-webpack/
+
+@import 'stylesheets/base';
+
