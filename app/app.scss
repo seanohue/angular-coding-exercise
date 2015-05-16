@@ -9,3 +9,16 @@
 
 @import 'stylesheets/base';
 
+// =============================================================================
+// Dependencies - Foundation for Apps
+// =============================================================================
+
+// Declare custom values for Foundation variables before importing Foundation to
+// override their prepackaged variables
+$body-font-family: $source-sans-pro;
+$primary-color: $base16-ocean--02;
+
+// Import Foundation for Apps
+@import "../bower_components/foundation-apps/scss/foundation";
+
+
