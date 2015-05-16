@@ -22,3 +22,14 @@ $primary-color: $base16-ocean--02;
 @import "../bower_components/foundation-apps/scss/foundation";
 
 
+// =============================================================================
+// Custom Styles
+// =============================================================================
+
+body {
+  // Typography
+  font-family: $source-sans-pro;
+
+  // Visual
+  background-color: $base16-ocean--07;
+}
