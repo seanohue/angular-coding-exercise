@@ -45,7 +45,7 @@ import './app.scss';
 // If ES6 import statements are unfamiliar, this is equivalent to:
 // var gsWelcomeModule = require('./welcome').name;
 // ------------------------------------
-import { name as gsWelcomeModule } from './welcome';
+import { name as gsWelcomeModule } from './directives/welcome';
 
 // ------------------------------------
 // Application Definition

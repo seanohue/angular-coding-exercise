@@ -1,6 +1,6 @@
 import angular from 'angular';
 import template from './template.jade';
-import MarvelService from '../services/marvel';
+import MarvelService from '../../services/marvel';
 import './style.scss';
 
 /* @ngInject */
