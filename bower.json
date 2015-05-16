@@ -17,7 +17,6 @@
     "tests"
   ],
   "devDependencies": {
-    "foundation-apps": "~1.1.0",
-    "bootstrap-sass": "~3.3.4"
+    "foundation-apps": "~1.1.0"
   }
 }
