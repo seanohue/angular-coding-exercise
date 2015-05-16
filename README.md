@@ -29,7 +29,6 @@ You'll then need to add `localhost` to the list of authorized referrers in your 
   </a>
 </p>
 
-
 Now for the actual application. We've created a sample service in the Angular application - `~/app/services/marvel` - that will automatically handle requests to the Marvel API, but it needs access to your public authentication keys. With your recently-acquired keys, create a file `marvel.auth.js` in `~/app/config/marvel.auth.js` and insert the following:
 
 ```js
@@ -152,7 +151,7 @@ Our styles are written using [OOCSS](http://appendto.com/2014/04/oocss/) princip
 **BEM naming conventions used in markup**
 ``` jade
 div.media
-  img.media__img--rev(src='logo.png" alt='Foo Corp logo')
+  img.media__img--rev(src='logo.png' alt='Foo Corp logo')
     div.media__body
       h3.alpha Welcome to Foo Corp
       p.lede Foo Corp is the best, seriously!
@@ -162,9 +161,14 @@ div.media
 ### Standards
 We have a work in progress [style guide](https://github.com/davezuko/gstv-javascript-standards) that you can refer to. We don't expect you to strictly adhere to these standards, but they may help provide insight into how our JavaScript is generally structured.
 
+The Webpack build system will run [JSHint](http://jshint.com/docs/) against your code before it's compiled. This will help spot common syntactical errors and will also enforce certain code standards - i.e., it will spot unused variables, missed semi-colons, and more. You should only commit your code once all lint errors have been resolved.
+
 ## Troubleshooting
 ### Build error: `libsass` bindings not found
 This error is generally caused by an out-of date (or non-existent) node-sass library. Check your global node-sass version if you already have it installed and make sure it satisfies version `^3.1.0`. If your global version meets this requirement and you're still having issues, try to install the package locally with `npm install node-sass`.
 
 ### Cannot find inlined Webpack development server
 In order to access the inlined version of the development server, make sure you're including the trailing slash after "webpack-dev-server" in the url: `http://localhost:3000/webpack-dev-server/`.
+
+### Build error: Error in ./app/services/marvel/interceptor.js
+This is a compile time error, and is most likely because you didn't create a `marvel.auth.js` file in `~/app/config` or named it incorrectly. Please refer to [Getting Started](#getting-started) for more information on what to include in this file.
