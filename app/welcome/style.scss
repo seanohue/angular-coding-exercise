@@ -2,14 +2,77 @@
 // variables that you may need in order to make your styles as DRY as possible
 @import '../stylesheets/base';
 
+// =============================================================================
+// Status Object
+// =============================================================================
 
-  position: relative;
-  display: inline-block;
-
-
-
-    }
+.status__label {
+  // Typography
+  font: {
+    size: 0.875rem;
+    weight: $font-weight--normal;
   }
 
+}
+
+.status__indicator {
+  // Positioning
+  position: relative;
+  top: 2px; // Magic number in order to properly position the indicator
+
+  // Box Model
+  display: inline-block;
+  // @TODO allow for variable size status indicators
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+
+  // Visual
+  border-radius: 50%;
+}
+
+@each $contextual-color, $contextual-color-variables in $contextual-colors {
+
+  .status--#{$contextual-color} {
+
+    .status__indicator {
+      // Visual
+      background-color: $contextual-color-variables;
     }
+
+  }
+
+}
+
+// =============================================================================
+// Welcome Object
+// =============================================================================
+
+.welcome {
+  // Display
+  display: flex;
+
+  // Typography
+  text-align: center;
+
+  // Flexbox
+  align-items: center;
+  justify-content: center;
+}
+
+  .welcome__title {
+    // Display
+    display: block;
+
+    // Box Model
+    width: 50%;
+
+    // Typography
+    font-weight: $font-weight--ultrabold;
+    line-height: 1.1;
+
+    > span {
+      display: block;
+    }
+
   }

@@ -1,10 +1,13 @@
-div.welcome
-  h1.welcome__title Welcome to the {{ dm.title }}!
-  div.welcome__body
-    p(ng-show='!dm.connection.complete')
-      span.log-item.log-item--pending Attempting to connect to the Marvel API...
-    p(ng-show='dm.connection.complete')
-      span.log-item.log-item--success(ng-show='dm.connection.success') Successfully connected to the Marvel API.
-      span.log-item.log-item--error(ng-show='dm.connection.error') There was an error reaching the Marvel API.
-      
-  
+div.grid-frame.vertical
+  div.primary.title-bar
+    // @TODO add additional logic to handle warning state while checking API
+    div.status(ng-class="dm.connection.success ? 'status--success' : 'status--danger'")
+      span.status__indicator
+      span.status__label(ng-if='!dm.connection.complete') Attempting to connect to the Marvel API.
+      span.status__label(ng-if='dm.connection.success') Successfully connected to the Marvel API.
+      span.status__label(ng-if='dm.connection.error') There was an error reaching the Marvel API.
+
+  div.welcome.grid-content
+    h1.welcome__title
+      span(ng-if='dm.connection.error') Something has went wrong while bootstrapping the {{ dm.title }}
+      span(ng-if='dm.connection.success') Time to get crackin' on {{ dm.title }}
