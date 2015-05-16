@@ -151,7 +151,7 @@ Our styles are written using [OOCSS](http://appendto.com/2014/04/oocss/) princip
 **BEM naming conventions used in markup**
 ``` jade
 div.media
-  img.media__img--rev(src='logo.png" alt='Foo Corp logo')
+  img.media__img--rev(src='logo.png' alt='Foo Corp logo')
     div.media__body
       h3.alpha Welcome to Foo Corp
       p.lede Foo Corp is the best, seriously!
