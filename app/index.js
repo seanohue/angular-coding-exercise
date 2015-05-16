@@ -55,7 +55,7 @@ function config ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('welcome', {
       url : '/',
-      template : '<gs-welcome title="GSTV Angular App"></gs-welcome>'
+      template : '<gs-welcome title="GSTV FE Coding Exercise"></gs-welcome>'
     });
   $urlRouterProvider.otherwise('/');
 }
