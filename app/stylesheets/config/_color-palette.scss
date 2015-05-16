@@ -1,0 +1,31 @@
+// =============================================================================
+// Sample Color Palette using Base16 - Ocean
+// @link http://chriskempson.github.io/base16/#ocean
+// =============================================================================
+
+// Feel free to replace the color palette with whatever you choose
+
+$base16-ocean--00: #2B303B;
+$base16-ocean--01: #343D46;
+$base16-ocean--02: #4F5B66;
+$base16-ocean--03: #65737E;
+$base16-ocean--04: #A7ADBA;
+$base16-ocean--05: #C0C5CE;
+$base16-ocean--06: #DFE1E8;
+$base16-ocean--07: #EFF1F5;
+$base16-ocean--08: #BF616A;
+$base16-ocean--09: #D08770;
+$base16-ocean--0A: #EBCB8B;
+$base16-ocean--0B: #A3BE8C;
+$base16-ocean--0C: #96B5B4;
+$base16-ocean--0D: #8FA1B3;
+$base16-ocean--0E: #B48EAD;
+$base16-ocean--0F: #AB7967;
+
+// Contextual colors map used to generate permutations
+$contextual-colors: (
+  primary: $base16-ocean--02,
+  success: $base16-ocean--0B,
+  warning: $base16-ocean--0A,
+  danger:  $base16-ocean--08
+);

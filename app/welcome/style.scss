@@ -1,42 +1,78 @@
-.welcome {
-  text-align: center;
+// Remember to always import the base stylesheets to include any global Sass
+// variables that you may need in order to make your styles as DRY as possible
+@import '../stylesheets/base';
+
+// =============================================================================
+// Status Object
+// =============================================================================
+
+.status__label {
+  // Typography
+  font: {
+    size: 0.875rem;
+    weight: $font-weight--normal;
+  }
+
 }
 
-.log-item {
-  $size: 1rem;
-
+.status__indicator {
+  // Positioning
   position: relative;
+  top: 2px; // Magic number in order to properly position the indicator
+
+  // Box Model
   display: inline-block;
+  // @TODO allow for variable size status indicators
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
 
-  &:before {
-    $icon-ratio: .5;
-    $icon-size: $size * $icon-ratio;
-
-    content: '';
-    position: absolute;
-    top: $icon-size * $icon-ratio;
-    left: -($icon-size * 1.75);
-    height: $icon-size;
-    width: $icon-size;
-    border-radius: 100%;
-    background: blue;
-  }
-
-  &--pending {
-    &:before {
-      background: yellow;
-    }
-  }
-
-  &--success {
-    &:before {
-      background: rgb(45, 224, 45);
-    }
-  }
-
-  &--error {
-    &:before {
-      background: #FD4763;
-    }
-  }
+  // Visual
+  border-radius: 50%;
 }
+
+@each $contextual-color, $contextual-color-variables in $contextual-colors {
+
+  .status--#{$contextual-color} {
+
+    .status__indicator {
+      // Visual
+      background-color: $contextual-color-variables;
+    }
+
+  }
+
+}
+
+// =============================================================================
+// Welcome Object
+// =============================================================================
+
+.welcome {
+  // Display
+  display: flex;
+
+  // Typography
+  text-align: center;
+
+  // Flexbox
+  align-items: center;
+  justify-content: center;
+}
+
+  .welcome__title {
+    // Display
+    display: block;
+
+    // Box Model
+    width: 50%;
+
+    // Typography
+    font-weight: $font-weight--ultrabold;
+    line-height: 1.1;
+
+    > span {
+      display: block;
+    }
+
+  }

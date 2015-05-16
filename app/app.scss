@@ -1,4 +1,35 @@
-// sample global .scss file
-html, body {
-  transform: translate3d(0,0,0); // sample for autoprefixer
+// =============================================================================
+// Dependencies - Custom
+// =============================================================================
+
+// Remember to import stylesheets/base if you need to include any global Sass
+// variables that you create. This is necesary because Webpack does not use a
+// traditional load order in the asset pipeline
+// @link http://bensmithett.com/smarter-css-builds-with-webpack/
+
+@import 'stylesheets/base';
+
+// =============================================================================
+// Dependencies - Foundation for Apps
+// =============================================================================
+
+// Declare custom values for Foundation variables before importing Foundation to
+// override their prepackaged variables
+$body-font-family: $source-sans-pro;
+$primary-color: $base16-ocean--02;
+
+// Import Foundation for Apps
+@import "../bower_components/foundation-apps/scss/foundation";
+
+
+// =============================================================================
+// Custom Styles
+// =============================================================================
+
+body {
+  // Typography
+  font-family: $source-sans-pro;
+
+  // Visual
+  background-color: $base16-ocean--07;
 }
