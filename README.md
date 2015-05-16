@@ -25,7 +25,7 @@ You'll then need to add `localhost` to the list of authorized referrers in your 
 
 <p align="center">
   <a href="https://developer.marvel.com/account">
-    <img src="https://raw.githubusercontent.com/GasStationTV/angular-coding-exercise/docs/images/authorized-referrers.png" style="width:75%;">
+    <img src="https://github.com/GasStationTV/angular-coding-exercise/blob/master/docs/images/authorized-referrers.png" style="width:75%;">
   </a>
 </p>
 
