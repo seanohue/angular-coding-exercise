@@ -42,6 +42,20 @@ class MarvelService {
     return this.dispatch('GET', [resource, id].join('/'), config);
   }
   
+  // (Optional) [Object] Config - Additional request configuration.
+  // Returns -> Promise -> (Response, Error)
+  getCharacters(config) {
+    return this.dispatch('GET', 'characters', config);
+  }
+
+  // [Number] Id - the id of the character to be retrieved.
+  // (Optional) [Object] Config - Additional request configuration.
+  // Returns -> Promise -> (Response, Error)
+  getCharacterById(id, config) {
+    return this.dispatch('GET', ['characters', id].join('/'), config);
+  }
+
+
   // Makes a request to a known-good API endpoint.
   // [Void]
   // Returns -> Promise -> (Response, Error)
