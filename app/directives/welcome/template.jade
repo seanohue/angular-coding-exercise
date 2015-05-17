@@ -6,8 +6,13 @@ div.grid-frame.vertical
       span.status__label(ng-if='!dm.connection.complete') Attempting to connect to the Marvel API.
       span.status__label(ng-if='dm.connection.success') Successfully connected to the Marvel API.
       span.status__label(ng-if='dm.connection.error') There was an error reaching the Marvel API.
+  div.grid-block
+    div.medium-4.grid-block
+      div(ng-repeat='character in dm.characters')
+        p {{character.name}}
+    div.medium-8.grid-block
 
-  div.welcome.grid-content
-    h1.welcome__title
-      span(ng-if='dm.connection.error') Something has went wrong while bootstrapping the {{ dm.title }}
-      span(ng-if='dm.connection.success') Time to get crackin' on the {{ dm.title }}
+      div.welcome.grid-content
+        h1.welcome__title
+          span(ng-if='dm.connection.error') Something has went wrong while bootstrapping the {{ dm.title }}
+          span(ng-if='dm.connection.success') Time to get crackin' on the {{ dm.title }}
