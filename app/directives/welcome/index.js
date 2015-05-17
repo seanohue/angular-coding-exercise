@@ -1,6 +1,6 @@
 import angular from 'angular';
 import template from './template.jade';
-import '../character-card';
+import CharacterCard from '../character-card';
 import MarvelService from '../../services/marvel';
 import './style.scss';
 
@@ -12,8 +12,9 @@ function gsWelcomeController (MarvelService) {
     console.info(`Welcome to the ${dm.title}!`);
     setTimeout(dm.pingMarvelService, 1000); // for dramatic effect
 
-    //Get characters
-    MarvelService.getCharacters().then(resp => dm.characters = resp.data.data.results);
+    //Get characters and set to dm
+    MarvelService.getCharacters().then(
+      resp => dm.characters = resp.data.data.results);
   };
 
   dm.pingMarvelService = function () {
@@ -25,8 +26,10 @@ function gsWelcomeController (MarvelService) {
       .finally(() => dm.connection.complete = true);
   };
 
-
-
+  dm.clickCharacter = function (character) {
+    dm.selected = character;
+  }
+  
   dm.init();
 }
 
@@ -43,6 +46,7 @@ function gsWelcome () {
 }
 
 export default angular.module('gstv.directives.welcome', [
-  MarvelService.name
+  MarvelService.name,
+  CharacterCard.name
 ])
   .directive('gsWelcome', gsWelcome);
