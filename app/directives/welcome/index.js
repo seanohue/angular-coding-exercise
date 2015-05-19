@@ -10,17 +10,14 @@ function gsWelcomeController (MarvelService) {
 
   dm.init = function () {
     console.info(`Welcome to the ${dm.title}!`);
-    setTimeout(dm.pingMarvelService, 1000); // for dramatic effect
-
-    //Get characters and set to dm
-    MarvelService.getCharacters().then(
-      resp => dm.characters = resp.data.data.results);
+    setTimeout(dm.makeSampleRequest, 1000); // for dramatic effect
   };
 
-  dm.pingMarvelService = function () {
-    dm.connection = { complete : false };
-
-    MarvelService.ping()
+  dm.makeSampleRequest = function () {
+    dm.connection = {};
+    
+    MarvelService.getCharacters()
+      .then(resp => dm.characters = resp.data.data.results)
       .then(() => dm.connection.success = true)
       .catch(() => dm.connection.error = true)
       .finally(() => dm.connection.complete = true);
@@ -28,8 +25,8 @@ function gsWelcomeController (MarvelService) {
 
   dm.clickCharacter = function (character) {
     dm.selected = character;
-  }
-  
+  };
+
   dm.init();
 }
 
