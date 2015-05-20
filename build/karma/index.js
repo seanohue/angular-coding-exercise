@@ -8,7 +8,6 @@ module.exports = config => {
     files : [
       'app/index.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/phantomjs-polyfill/bind-polyfill.js',
       'app/test.js'
     ],
     frameworks : ['chai', 'mocha'],
