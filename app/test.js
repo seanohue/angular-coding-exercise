@@ -1,7 +1,8 @@
-// NOTE: this file should be used instead of a regex in the karma config,
-// as this this setup test changes won't have to re-run the entire suite.
-var testsContext = require.context('.', true, /\.spec\.js$/);
-testsContext.keys().forEach(context => require(context));
+// TODO: this shouldn't be necessary... figure out why all non-test
+// imports aren't being compiled by webpack (or are they?).
+// require('babel/polyfill');
 
-// TODO: this is supposed to work... need a polyfill?
-// testsContext.keys().forEach(context);
+// Require all ".spec.js" files.
+var context = require.context('.', true, /.+\.spec\.js?$/);
+context.keys().forEach(context);
+module.exports = context;
