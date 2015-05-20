@@ -1,8 +1,8 @@
 import { name as MarvelServiceModule } from './index';
 let MarvelService;
 
-describe('gstv.services.marvel', function () {
-  beforeEach(angular.mock.module('gstv.services.marvel'));
+describe(MarvelServiceModule, function () {
+  beforeEach(angular.mock.module(MarvelServiceModule));
   beforeEach(inject(function (_MarvelService_) {
     MarvelService = _MarvelService_;
   }));
