@@ -55,7 +55,7 @@ We use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/git
 
 We are asking that you use a modified [Github Flow](https://guides.github.com/introduction/flow/) - sometimes referred to as a [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) - methodology instead of GitFlow. Conceptually, GitFlow and Github flow are similar.
 
-Please fork our repository and use a feature branch workflow while developing your functionality. When you are ready to submit your work make a pull request against our repository.
+Please fork our repository and use a feature branch workflow while developing your functionality. When you are ready to submit your work make a [pull request against our repository](https://help.github.com/articles/using-pull-requests/).
 
 ## Build System
 We choose [Webpack](http://webpack.github.io/) as the build system because it provides a lot of built-in functionality that would require more boilerplate with something like [Browserify](http://browserify.org/). Some key features we use include:
