@@ -4,7 +4,7 @@
   "description": "GSTV coding exercise for FE candidates",
   "main": "index.js",
   "scripts": {
-    "setup": "npm install; bower install",
+    "setup": "npm install",
     "build": "webpack",
     "build:prod": "NODE_ENV=production webpack",
     "dev": "webpack-dev-server --port 3000 --hot --inline --colors",
@@ -31,6 +31,7 @@
     "babel-loader": "^5.0.0",
     "css-loader": "^0.12.0",
     "extract-text-webpack-plugin": "^0.8.0",
+    "foundation-apps": "^1.1.0",
     "html-webpack-plugin": "^1.3.0",
     "jade": "^1.9.2",
     "jade-loader": "^0.7.1",

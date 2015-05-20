@@ -16,7 +16,6 @@ Build us anything you want using the Marvel Comics API. Seriously, that is the o
 
 ## System Requirements
 * Node.js `^0.10.36` _or_ IO.js `^2.0.1`
-* Bower `^1.3.2`
 
 ## Getting Started
 Sign up for a [Marvel API Key](https://developer.marvel.com/pleasesignin) to get a public key. You only need the private key if you plan to proxy requests from a custom server.
@@ -44,7 +43,7 @@ export default AUTH_KEYS;
 Next, install the project dependencies with npm and bower to get the sandbox running. You can either run our `npm run setup` wrapper or do this manually with:
 
 ``` shell
-npm install && bower install
+npm install
 ```
 
 Once these are complete, you should have everything you need to run the application. Run `npm run dev` to spin up the Webpack development server at `http://localhost:3000`. We recommend that you check out the rest of the documentation before diving into the exercise.
