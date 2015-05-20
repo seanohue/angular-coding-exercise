@@ -41,7 +41,7 @@ class MarvelService {
   getOne (resource, id, config) {
     return this.dispatch('GET', [resource, id].join('/'), config);
   }
-  
+
   // (Optional) [Object] Config - Additional request configuration.
   // Returns -> Promise -> (Response, Error)
   getCharacters(config) {
