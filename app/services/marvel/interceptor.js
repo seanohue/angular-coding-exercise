@@ -1,4 +1,11 @@
-import AUTH_KEYS from '../../config/marvel.auth';
+/* jshint ignore:start */
+// A marvel.auth.js file is required in ~/app/config. Please refer to
+// the README for more information on what to export from it.
+// Once it's been created, please uncomment the line below so this
+// module can import your authentication keys.
+// -------------------------------------------------
+// import AUTH_KEYS from '../../config/marvel.auth';
+// -------------------------------------------------
 const API_PARAM = 'apikey';
 
 export default () => {
@@ -19,3 +26,4 @@ export default () => {
     return {};
   }
 };
+/* jshint ignore:end */
