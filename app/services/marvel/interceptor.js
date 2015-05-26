@@ -6,7 +6,12 @@
 // -------------------------------------------------
 // import AUTH_KEYS from '../../config/marvel.auth';
 // -------------------------------------------------
-const AUTH_KEYS = 'AUTH_KEY_FROM_MARVEL_AUTH';
+
+//Comment or delete this statement when importing marvel.auth
+//--------------------------------------------------
+const AUTH_KEYS = {get: () => undefined};
+//--------------------------------------------------
+
 const API_PARAM = 'apikey';
 
 export default () => {
