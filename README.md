@@ -1,4 +1,5 @@
 # GSTV FE Coding Exercise
+[![Build Status](https://travis-ci.org/GasStationTV/angular-coding-exercise.svg?branch=feature%2Ftravis-ci-integration)](https://travis-ci.org/GasStationTV/angular-coding-exercise)
 
 1. [Exercise Overview](#exercise-overview)
 1. [System Requirements](#system-requirements)
