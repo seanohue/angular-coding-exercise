@@ -39,28 +39,20 @@ class MarvelService {
   // (Optional) [Object] Config - Additional request configuration.
   // Returns -> Promise -> (Response, Error)
   getOne (resource, id, config) {
-    return this.dispatch('GET', [resource, id].join('/'), config);
+    return this.get(`${resource}/${id}`, config);
   }
 
   // (Optional) [Object] Config - Additional request configuration.
   // Returns -> Promise -> (Response, Error)
-  getCharacters(config) {
-    return this.dispatch('GET', 'characters', config);
+  getCharacters (config) {
+    return this.get('characters', config);
   }
 
   // [Number] Id - the id of the character to be retrieved.
   // (Optional) [Object] Config - Additional request configuration.
   // Returns -> Promise -> (Response, Error)
-  getCharacterById(id, config) {
-    return this.dispatch('GET', ['characters', id].join('/'), config);
-  }
-
-
-  // Makes a request to a known-good API endpoint.
-  // [Void]
-  // Returns -> Promise -> (Response, Error)
-  ping () {
-    return this.get('characters');
+  getCharacterById (id, config) {
+    return this.getOne('characters', id, config);
   }
 
   // Handles the actual process of making the API request, all methods
