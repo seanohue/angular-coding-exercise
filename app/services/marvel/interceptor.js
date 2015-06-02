@@ -7,23 +7,24 @@
 // import AUTH_KEYS from '../../config/marvel.auth';
 // -------------------------------------------------
 
-//Comment or delete this statement when importing marvel.auth
-//--------------------------------------------------
-const AUTH_KEYS = {get: () => undefined};
-//--------------------------------------------------
-
 const API_PARAM = 'apikey';
 
 export default () => {
-  if (AUTH_KEYS && AUTH_KEYS.get('public')) {
-    return {
-      'request' : (config) => {
-        config.params = config.params || {};
-        config.params[API_PARAM] = AUTH_KEYS.get('public');
-        return config;
-      }
-    };
-  } else {
+  try {
+    const publicKey = AUTH_KEYS.get('public');
+
+    if (!publicKey) {
+      throw new Error(); // err message is irrelevant
+    } else {
+      return {
+        'request' : (config) => {
+          config.params = config.params || {};
+          config.params[API_PARAM] = AUTH_KEYS.get('public');
+          return config;
+        }
+      };
+    }
+  } catch (e) {
     console.warn([
       'Could not find Marvel API keys. Please make sure these are available',
       'within ~/app/config/marvel.auth.js -- See the application README for',
