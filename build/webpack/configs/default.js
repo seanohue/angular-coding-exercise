@@ -38,7 +38,15 @@ module.exports = exports = {
     new webpack.optimize.DedupePlugin()
   ],
   resolve : {
-    extensions : ['', '.js', '.jsx']
+    extensions : ['', '.js', '.jsx'],
+    alias : {
+      config     : resolve('app/config'),
+      directives : resolve('app/directives'),
+      factories  : resolve('app/factories'),
+      filters    : resolve('app/filters'),
+      providers  : resolve('app/providers'),
+      services   : resolve('app/services')
+    }
   },
   module : {
     preLoaders: [{

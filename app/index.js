@@ -42,10 +42,15 @@ import './app.scss';
 // ------------------------------------
 // Core Component Imports
 // ------------------------------------
-// If ES6 import statements are unfamiliar, this is equivalent to:
+// NOTE If ES6 import statements are unfamiliar, this is equivalent to:
 // var gsWelcomeModule = require('./welcome').name;
+
+// NOTE This uses a path alias defined in the webpack build configuration
+// (~/build/webpack/configs/default). Normally, imports from a folder outside
+// of node_modules require a relative path (in this case, it would be
+// "./directives/welcome").
 // ------------------------------------
-import { name as gsWelcomeModule } from './directives/welcome';
+import { name as gsWelcomeModule } from 'directives/welcome';
 
 // ------------------------------------
 // Application Definition
