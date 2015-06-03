@@ -1,3 +1,13 @@
+// ------------------------------------
+// Developer Note
+// ------------------------------------
+// Hey again, just a quick note about this directive...
+// the whole point of this is to give you some sort of
+// indication that the boilerplate application is working
+// as expected. Don't hesitate to completely rip this
+// apart or discard it as necessary, it exists only
+// as a startup splash screen.
+// ------------------------------------
 import angular from 'angular';
 import template from './template.jade';
 import MarvelService from '../../services/marvel';
@@ -8,7 +18,6 @@ function gsWelcomeController (MarvelService) {
   const dm = this;
 
   dm.init = function () {
-    console.info(`Welcome to the ${dm.title}!`);
     setTimeout(dm.makeSampleRequest, 1000); // for dramatic effect
   };
 
