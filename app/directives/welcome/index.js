@@ -16,19 +16,20 @@ import './style.scss';
 /* @ngInject */
 function gsWelcomeController (MarvelService) {
   const dm = this;
+  dm.state = {};
 
   dm.init = function () {
     setTimeout(dm.makeSampleRequest, 1000); // for dramatic effect
   };
 
   dm.makeSampleRequest = function () {
-    dm.connection = {};
+    dm.state.connection = {};
 
     // ping a known-good endpoint
     MarvelService.getCharacters()
-      .then(() => dm.connection.success = true)
-      .catch(() => dm.connection.error = true)
-      .finally(() => dm.connection.complete = true);
+      .then(() => dm.state.connection.success = true)
+      .catch(() => dm.state.connection.error = true)
+      .finally(() => dm.state.connection.complete = true);
   };
 
   dm.init();
