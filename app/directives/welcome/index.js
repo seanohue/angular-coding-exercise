@@ -1,6 +1,5 @@
 import angular from 'angular';
 import template from './template.jade';
-import CharacterCard from '../character-card';
 import MarvelService from '../../services/marvel';
 import './style.scss';
 
@@ -15,16 +14,12 @@ function gsWelcomeController (MarvelService) {
 
   dm.makeSampleRequest = function () {
     dm.connection = {};
-    
+
+    // ping a known-good endpoint
     MarvelService.getCharacters()
-      .then(resp => dm.characters = resp.data.data.results)
       .then(() => dm.connection.success = true)
       .catch(() => dm.connection.error = true)
       .finally(() => dm.connection.complete = true);
-  };
-
-  dm.clickCharacter = function (character) {
-    dm.selected = character;
   };
 
   dm.init();
@@ -43,7 +38,6 @@ function gsWelcome () {
 }
 
 export default angular.module('gstv.directives.welcome', [
-  MarvelService.name,
-  CharacterCard.name
+  MarvelService.name
 ])
   .directive('gsWelcome', gsWelcome);
