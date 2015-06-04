@@ -83,6 +83,9 @@ Runs the webpack development server at `http://localhost:3000` (inlined at `http
 #### `npm run dev:quiet`
 Same as `npm run dev`, but hides verbose debugging information.
 
+#### `npm run test`
+Runs unit tests with the Karma, Mocha, and Chai. See [Javascript](#javascript) for more details.
+
 ## Application Structure
 Our goal is to give you a working application out of the box without restricting you to a specific architecture. However, there are some key design decisions to note:
 
@@ -162,6 +165,9 @@ div.media
 We have a work in progress [style guide](https://github.com/davezuko/gstv-javascript-standards) that you can refer to. We don't expect you to strictly adhere to these standards, but they may help provide insight into how our JavaScript is generally structured.
 
 The Webpack build system will run [JSHint](http://jshint.com/docs/) against your code before it's compiled. This will help spot common syntactical errors and will also enforce certain code standards - i.e., it will spot unused variables, missed semi-colons, and more. You should only commit your code once all lint errors have been resolved.
+
+### Unit Testing
+If you want to create unit tests, you can do so by creating a file with a `.spec.js` extension anywhere in the `~/app` directory. These files will automatically be required via `~/app/test.js`. Tests are currently run with [Karma](https://github.com/karma-runner/karma), [Mocha](https://github.com/mochajs/mocha), and [Chai](http://chaijs.com/).
 
 ## Troubleshooting
 ### Build error: `libsass` bindings not found
