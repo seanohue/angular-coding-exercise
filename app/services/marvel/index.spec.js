@@ -1,5 +1,5 @@
 import { name as MarvelServiceModule } from './index';
-let MarvelService;
+var MarvelService;
 
 describe(MarvelServiceModule, function () {
   beforeEach(angular.mock.module(MarvelServiceModule));
@@ -7,12 +7,15 @@ describe(MarvelServiceModule, function () {
     MarvelService = _MarvelService_;
   }));
 
-  it('Should have a test.', function () {
-    assert.equal(1, 1);
-    expect(true).to.be.true;
+  it('Should be an object.', function () {
+    expect(MarvelService).to.be.an.object;
   });
 
   it('Should have a method .get().', function () {
-    expect(MarvelService.get).to.be.a('function');
+    expect(MarvelService.get).to.be.a.function;
+  });
+
+  it('Should have a method .getOne().', function () {
+    expect(MarvelService.getOne).to.be.a.function;
   });
 });
