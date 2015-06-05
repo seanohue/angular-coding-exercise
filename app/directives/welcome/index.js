@@ -9,9 +9,10 @@
 // as a startup splash screen.
 // ------------------------------------
 import angular from 'angular';
-import template from './template.jade';
-import MarvelService from 'services/marvel';
-import './style.scss';
+import template from './welcome.jade';
+import { name as MarvelServiceModule } from 'services/marvel';
+import { name as StatusBarModule } from 'directives/status-bar';
+import './welcome.scss';
 
 /* @ngInject */
 function gsWelcomeController (MarvelService) {
@@ -48,6 +49,7 @@ function gsWelcome () {
 }
 
 export default angular.module('gstv.directives.welcome', [
-  MarvelService.name
+  MarvelServiceModule,
+  StatusBarModule
 ])
   .directive('gsWelcome', gsWelcome);
