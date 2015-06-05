@@ -10,17 +10,11 @@
 @import 'stylesheets/base';
 
 // =============================================================================
-// Dependencies - Foundation for Apps
+// Dependencies - Bootstrap
 // =============================================================================
 
-// Declare custom values for Foundation variables before importing Foundation to
-// override their prepackaged variables
-$body-font-family: $source-sans-pro;
-$primary-color: $base16-ocean--02;
-
-// Import Foundation for Apps
-@import "../node_modules/foundation-apps/scss/foundation";
-
+$icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 // =============================================================================
 // Custom Styles
