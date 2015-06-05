@@ -10,8 +10,8 @@
 // ------------------------------------
 import angular from 'angular';
 import template from './welcome.jade';
-import MarvelService from 'services/marvel';
-import StatusBar from 'directives/status-bar';
+import { name as MarvelServiceModule } from 'services/marvel';
+import { name as StatusBarModule } from 'directives/status-bar';
 import './welcome.scss';
 
 /* @ngInject */
@@ -49,7 +49,7 @@ function gsWelcome () {
 }
 
 export default angular.module('gstv.directives.welcome', [
-  MarvelService.name,
-  StatusBar.name
+  MarvelServiceModule,
+  StatusBarModule
 ])
   .directive('gsWelcome', gsWelcome);
