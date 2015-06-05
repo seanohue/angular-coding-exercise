@@ -1,3 +1,5 @@
+// Directive-specific Styles
+
 // Remember to always import the base stylesheets to include any global Sass
 // variables that you may need in order to make your styles as DRY as possible
 @import '../../stylesheets/base';
@@ -9,9 +11,11 @@
 .status__label {
   // Typography
   font: {
-    size: 0.875rem;
+    // size: 0.875rem;
     weight: $font-weight--normal;
   }
+  line-height: 48px; // Magic number in order to vertically align the status. Soon Flexbox. Soon.
+  color: white;
 
 }
 
@@ -48,31 +52,17 @@
 // Welcome Object
 // =============================================================================
 
-.welcome {
+.welcome__title {
   // Display
-  display: flex;
+  display: block;
 
   // Typography
+  font-weight: $font-weight--ultrabold;
+  line-height: 1.1;
   text-align: center;
 
-  // Flexbox
-  align-items: center;
-  justify-content: center;
-}
-
-  .welcome__title {
-    // Display
+  > span {
     display: block;
-
-    // Box Model
-    width: 50%;
-
-    // Typography
-    font-weight: $font-weight--ultrabold;
-    line-height: 1.1;
-
-    > span {
-      display: block;
-    }
-
   }
+
+}

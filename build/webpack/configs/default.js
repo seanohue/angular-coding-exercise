@@ -49,10 +49,10 @@ module.exports = exports = {
     }
   },
   module : {
-    preLoaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'jshint'
+    preLoaders : [{
+      test : /\.js$/,
+      exclude : /node_modules/,
+      loader : 'jshint'
     }],
     loaders : [{
       test : /\.js?$/,
@@ -71,9 +71,26 @@ module.exports = exports = {
       test : /\.jade?$/,
       loaders : ['jade'],
       include : resolve('app')
+    },
+    // Bootstrap-specific Loaders
+    {
+      test : /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loaders : ['url?limit=10000&mimetype=application/font-woff']
+    },
+    {
+      test : /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+      loaders : ['url?limit=10000&mimetype=application/octet-stream']
+    },
+    {
+      test : /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+      loaders : ['file']
+    },
+    {
+      test : /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+      loaders : ['url?limit=10000&mimetype=image/svg+xml']
     }]
   },
-  jshint: {
+  jshint : {
     emitErrors : false,
     failOnHint : false,
     reporter   : require('jshint-loader-stylish')()
