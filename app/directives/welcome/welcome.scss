@@ -1,0 +1,24 @@
+// Directive-specific Styles
+
+// Remember to always import the base stylesheets to include any global Sass
+// variables that you may need in order to make your styles as DRY as possible
+@import '../../stylesheets/base';
+
+// =============================================================================
+// Welcome Object
+// =============================================================================
+
+.welcome__title {
+  // Display
+  display: block;
+
+  // Typography
+  font-weight: $font-weight--ultrabold;
+  line-height: 1.1;
+  text-align: center;
+
+  > span {
+    display: block;
+  }
+
+}
