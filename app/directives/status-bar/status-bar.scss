@@ -1,0 +1,45 @@
+@import '../../stylesheets/base';
+
+// =============================================================================
+// Status Object
+// =============================================================================
+
+.status__label {
+  // Typography
+  font: {
+    // size: 0.875rem;
+    weight: $font-weight--normal;
+  }
+  line-height: 48px; // Magic number in order to vertically align the status. Soon Flexbox. Soon.
+  color: white;
+
+}
+
+.status__indicator {
+  // Positioning
+  position: relative;
+  top: 2px; // Magic number in order to properly position the indicator
+
+  // Box Model
+  display: inline-block;
+  // @TODO allow for variable size status indicators
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+
+  // Visual
+  border-radius: 50%;
+}
+
+@each $contextual-color, $contextual-color-variables in $contextual-colors {
+
+  .status--#{$contextual-color} {
+
+    .status__indicator {
+      // Visual
+      background-color: $contextual-color-variables;
+    }
+
+  }
+
+}
