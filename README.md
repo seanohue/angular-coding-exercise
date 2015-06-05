@@ -41,6 +41,8 @@ export default AUTH_KEYS;
 
 **Note:** This file is .gitignored so you don't have to worry about accidentally committing it.
 
+**Important:** Because we want the project to compile even if you forget this file, we've commented out the code responsible for importing it. You'll have to uncomment the import statement at the top of `~/app/services/marvel/interceptor.js`. This interceptor will automatically attach your public key to API requests so you don't have to worry about it!
+
 Next, install the project dependencies with npm and bower to get the sandbox running. You can either run our `npm run setup` wrapper or do this manually with:
 
 ``` shell
