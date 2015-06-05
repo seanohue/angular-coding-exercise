@@ -9,21 +9,30 @@
 
 @import 'stylesheets/base';
 
+
 // =============================================================================
 // Dependencies - Bootstrap
 // =============================================================================
 
+// This is an example of how to override default Bootstrap variables. A list of
+// available variables can be found at
+// @link https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+$font-family-sans-serif: $source-sans-pro;
+$navbar-inverse-bg: $base16-ocean--01;
+$navbar-inverse-border: $navbar-inverse-bg;
+
+// It is not recommended that you adjust the path for the icon-font-path as this
+// will cause Webpack to fail while bundling styles
 $icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
 
 // =============================================================================
 // Custom Styles
 // =============================================================================
 
 body {
-  // Typography
-  font-family: $source-sans-pro;
-
   // Visual
   background-color: $base16-ocean--07;
 }
