@@ -1,6 +1,6 @@
 {
   "name": "angular-coding-exercise",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "GSTV coding exercise for FE candidates",
   "main": "index.js",
   "scripts": {
