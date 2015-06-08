@@ -13,6 +13,6 @@ div.container-fluid
           span(ng-if='dm.state.connection.error') Something went wrong while bootstrapping the {{ dm.title }}
           span(ng-show='dm.noResults()') No results.
           span(ng-repeat='char in dm.characters') 
-            a(href='') {{ char.name }}
+            a(href='', ng-click="dm.setCharacter(char.id)") {{ char.id }}
 
        

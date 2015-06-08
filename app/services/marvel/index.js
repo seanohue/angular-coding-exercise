@@ -25,6 +25,14 @@ const MARVEL_API = 'http://gateway.marvel.com/v1/public';
 class MarvelService {
   constructor ($http) {
     this._$http = $http;
+    this._charID = null;
+  }
+  
+
+
+  setCharacter (characterId){
+    console.log(characterId + 'passed to service.');
+    this._charID = characterId;
   }
 
   // [String] Resource - the API resource to be accessed.

@@ -35,12 +35,13 @@ function gsWelcomeController (MarvelService) {
   };
 
   dm.noResults = function () {
-    console.log(dm.characters.length + '' + dm.searched);
-    console.log((dm.characters.length === 0) && dm.searched)
     return (dm.characters.length === 0) && dm.searched;
   };
 
-
+  dm.setCharacter = function (characterId) {
+    console.log("Controller sees "+characterId);
+    MarvelService.setCharacter(characterId);
+  };
 
   dm.makeSampleRequest = function () {
     dm.state.connection = {};
