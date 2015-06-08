@@ -8,8 +8,10 @@ div.container-fluid
           span.label.search Search by Character Name
           input(type="text", name="search", ng-model="dm.search")
           span.actions
-            input(type="submit", value="Search", ng-click="dm.makeRequest()")
+            input(type="submit", value="Search", ng-click="dm.makeRequest(); dm.searched=true")
         h1.welcome__title
           span(ng-if='dm.state.connection.error') Something went wrong while bootstrapping the {{ dm.title }}
-          span(ng-repeat='char in dm.characters.$$state.value.data.data.results') {{char.name}}
+          span(ng-show='dm.noResults()') No results.
+          span(ng-repeat='char in dm.characters') {{ char.name }}
+
        

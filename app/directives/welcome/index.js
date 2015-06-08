@@ -19,6 +19,7 @@ function gsWelcomeController (MarvelService) {
   const dm = this;
   dm.state = {};
   dm.search = '';
+  dm.searched = false;
   dm.characters = {};
 
   dm.init = function () {
@@ -26,17 +27,23 @@ function gsWelcomeController (MarvelService) {
   };
 
   dm.makeRequest = function () {
-    dm.state.connection = {};
 
     MarvelService.searchCharacters(dm.search)
-      .then(() => dm.state.connection.success = true)
-      .then(() => console.log(dm.state))
-      .then(() => dm.characters =  MarvelService.searchCharacters(dm.search))
-      .catch(() => dm.state.connection.error = true)
-      .finally(() => dm.state.connection.complete = true)
-      .finally(() => console.log(dm.state))
-    console.log('Controller query = '+dm.search);
+      .success (function (data) {
+        dm.characters = data.data.results;
+        console.log(data);
+      })
+
+      //dm.init(); //because otherwise it only does one call
   };
+
+  dm.noResults = function () {
+    console.log(dm.characters.length + '' + dm.searched);
+    console.log((dm.characters.length === 0) && dm.searched)
+    return (dm.characters.length === 0) && dm.searched;
+  };
+
+
 
   dm.makeSampleRequest = function () {
     dm.state.connection = {};
