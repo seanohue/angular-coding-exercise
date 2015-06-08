@@ -18,21 +18,39 @@ import './welcome.scss';
 function gsWelcomeController (MarvelService) {
   const dm = this;
   dm.state = {};
+  dm.search = '';
+  dm.searched = false;
+  dm.characters = {};
 
   dm.init = function () {
     setTimeout(dm.makeSampleRequest, 1000); // for dramatic effect
   };
 
+  dm.makeRequest = function () {
+    MarvelService.searchCharacters(dm.search)
+      .success (function (data) {
+        dm.characters = data.data.results;
+        console.log(data);
+      })
+  };
+
+  dm.noResults = function () {
+    console.log(dm.characters.length + '' + dm.searched);
+    console.log((dm.characters.length === 0) && dm.searched)
+    return (dm.characters.length === 0) && dm.searched;
+  };
+
+
+
   dm.makeSampleRequest = function () {
     dm.state.connection = {};
-    dm.characters = {};
+
     // ping a known-good endpoint
     MarvelService.getCharacters()
       .then(() => dm.state.connection.success = true)
-      .then(() => dm.characters =  MarvelService.getCharacters())
       .catch(() => dm.state.connection.error = true)
       .finally(() => dm.state.connection.complete = true)
-      .finally(() => console.log(dm.characters))
+    console.log('Controller query = '+dm.search);
   };
 
   dm.init();
