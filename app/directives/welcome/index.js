@@ -27,14 +27,11 @@ function gsWelcomeController (MarvelService) {
   };
 
   dm.makeRequest = function () {
-
     MarvelService.searchCharacters(dm.search)
       .success (function (data) {
         dm.characters = data.data.results;
         console.log(data);
       })
-
-      //dm.init(); //because otherwise it only does one call
   };
 
   dm.noResults = function () {
