@@ -25,16 +25,20 @@ function gsWelcomeController (MarvelService) {
 
   dm.makeSampleRequest = function () {
     dm.state.connection = {};
-
+    dm.characters = {};
     // ping a known-good endpoint
     MarvelService.getCharacters()
       .then(() => dm.state.connection.success = true)
+      .then(() => dm.characters =  MarvelService.getCharacters())
       .catch(() => dm.state.connection.error = true)
-      .finally(() => dm.state.connection.complete = true);
+      .finally(() => dm.state.connection.complete = true)
+      .finally(() => console.log(dm.characters))
   };
 
   dm.init();
 }
+
+
 
 function gsWelcome () {
   return {
