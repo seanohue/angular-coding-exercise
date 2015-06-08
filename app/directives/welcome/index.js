@@ -30,7 +30,7 @@ function gsWelcomeController (MarvelService) {
     // ping a known-good endpoint
     MarvelService.getCharacters()
       .then(() => dm.state.connection.success = true)
-      .then(() => dm.characters =  MarvelService.getCharacters())
+      .then(() => dm.characters =  MarvelService.searchCharacters(dm.search))
       .catch(() => dm.state.connection.error = true)
       .finally(() => dm.state.connection.complete = true)
       .finally(() => console.log(dm.characters))
