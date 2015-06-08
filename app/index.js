@@ -51,6 +51,7 @@ import './app.scss';
 // "./directives/welcome").
 // ------------------------------------
 import { name as gsWelcomeModule } from 'directives/welcome';
+import { name as gsHeroModule } from 'directives/hero';
 
 // ------------------------------------
 // Application Definition
@@ -61,11 +62,11 @@ function config ($stateProvider, $urlRouterProvider) {
     .state('welcome', {
       url : '/',
       template : '<gs-welcome title="Marvel Hero-Finder"></gs-welcome>'
-    });
+    })
     .state('hero', {
       url : '/hero',
       template : '<gs-hero title="Hero Profile"></gs-hero>'
-    })
+    });
   $urlRouterProvider.otherwise('/');
 }
 
