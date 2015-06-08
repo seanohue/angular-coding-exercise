@@ -51,7 +51,16 @@ class MarvelService {
   // (Optional) [Object] Config - Additional request configuration.
   // Returns -> Promise -> (Response, Error)
   searchCharacters (query, config) {
-    return this.get('characters?nameStartsWith=${query}', config);
+    console.log(query);
+    var resource = [
+      'characters?nameStartsWith=',
+      query
+    ].join('');
+    if (!query){
+      resource = 'characters';
+    }
+    console.log(resource);
+    return this.get(resource, config);
   }
 
   // [Number] Id - the id of the character to be retrieved.

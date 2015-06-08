@@ -7,6 +7,8 @@ div.container-fluid
         div.input.search
           span.label.search Search by Character Name
           input(type="text", name="search", ng-model="dm.search")
+          span.actions
+            input(type="submit", value="Search", ng-click="dm.makeRequest()")
         h1.welcome__title
           span(ng-if='dm.state.connection.error') Something went wrong while bootstrapping the {{ dm.title }}
           span(ng-repeat='char in dm.characters.$$state.value.data.data.results') {{char.name}}
