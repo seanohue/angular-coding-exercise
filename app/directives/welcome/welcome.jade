@@ -3,6 +3,10 @@ div.container-fluid
   div.row
     div.col-md-6.col-md-push-3
       div.welcome
+      form(name="search", method="post")
+        div.input.search
+          span.label.search Search by Character Name
+          input(type="text", name="search", ng-model="dm.search")
         h1.welcome__title
           span(ng-if='dm.state.connection.error') Something went wrong while bootstrapping the {{ dm.title }}
           span(ng-repeat='char in dm.characters.$$state.value.data.data.results') {{char.name}}
