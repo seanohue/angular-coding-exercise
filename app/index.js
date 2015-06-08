@@ -60,13 +60,18 @@ function config ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('welcome', {
       url : '/',
-      template : '<gs-welcome title="GSTV FE Coding Exercise"></gs-welcome>'
+      template : '<gs-welcome title="Marvel Hero-Finder"></gs-welcome>'
     });
+    .state('hero', {
+      url : '/hero',
+      template : '<gs-hero title="Hero Profile"></gs-hero>'
+    })
   $urlRouterProvider.otherwise('/');
 }
 
 angular.module('GSTVApp', [
   'ui.router',
-  gsWelcomeModule
+  gsWelcomeModule,
+  gsHeroModule
 ])
   .config(config);
