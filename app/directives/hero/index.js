@@ -9,13 +9,13 @@
 // as a startup splash screen.
 // ------------------------------------
 import angular from 'angular';
-import template from './welcome.jade';
+import template from './hero.jade';
 import { name as MarvelServiceModule } from 'services/marvel';
 import { name as StatusBarModule } from 'directives/status-bar';
-import './welcome.scss';
+import './hero.scss';
 
 /* @ngInject */
-function gsWelcomeController (MarvelService, $state) {
+function gsHeroController (MarvelService) {
   const dm = this;
   dm.state = {};
   dm.search = '';
@@ -35,14 +35,12 @@ function gsWelcomeController (MarvelService, $state) {
   };
 
   dm.noResults = function () {
+    console.log(dm.characters.length + '' + dm.searched);
+    console.log((dm.characters.length === 0) && dm.searched)
     return (dm.characters.length === 0) && dm.searched;
   };
 
-  dm.setCharacter = function (characterId) {
-    console.log("Controller sees "+characterId);
-    MarvelService.setCharacter(characterId);
-    $state.go('hero');
-  };
+
 
   dm.makeSampleRequest = function () {
     dm.state.connection = {};
@@ -60,20 +58,20 @@ function gsWelcomeController (MarvelService, $state) {
 
 
 
-function gsWelcome () {
+function gsHero () {
   return {
     scope : {
       title : '@'
     },
     template : template,
-    controller : gsWelcomeController,
+    controller : gsHeroController,
     controllerAs : 'dm',
     bindToController : true
   };
 }
 
-export default angular.module('gstv.directives.welcome', [
+export default angular.module('gstv.directives.hero', [
   MarvelServiceModule,
   StatusBarModule
 ])
-  .directive('gsWelcome', gsWelcome);
+  .directive('gsHero', gsHero);
