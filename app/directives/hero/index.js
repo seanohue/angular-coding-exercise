@@ -20,9 +20,21 @@ function gsHeroController (MarvelService) {
   dm.state = {};
   dm.character = {};
 
+
   dm.init = function () {
    dm.makeRequest(MarvelService._charID);
+   console.log(character);
   };
+
+  dm.portrait = function () {
+    var url = [
+        dm.character.thumbnail.path,
+        'portrait_uncanny',
+        dm.character.thumbnail.extension
+      ].join('');
+      console.log(url);
+    return url;
+  }
 
   dm.makeRequest = function (charID) {
     MarvelService.getCharacterById(charID)

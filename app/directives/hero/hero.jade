@@ -2,7 +2,10 @@ gs-status-bar(ng-model='dm.state.connection')
 div.container-fluid
   div.row
     div.col-md-6.col-md-push-3
-      div
+      div.profile(ng-show='dm.state.connection.complete')
+        h1 {{dm.character.name}}
+        p {{dm.character.description}}
+        img(ng-src='{{dm.portrait()}}')
       
 
        
