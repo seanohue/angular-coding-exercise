@@ -18,18 +18,16 @@ import './hero.scss';
 function gsHeroController (MarvelService) {
   const dm = this;
   dm.state = {};
-  dm.search = '';
-  dm.searched = false;
-  dm.characters = {};
+  dm.character = {};
 
   dm.init = function () {
-    setTimeout(dm.makeSampleRequest, 1000); // for dramatic effect
+   dm.makeRequest(MarvelService._charID);
   };
 
-  dm.makeRequest = function () {
-    MarvelService.searchCharacters(dm.search)
+  dm.makeRequest = function (charID) {
+    MarvelService.getCharacterById(charID)
       .success (function (data) {
-        dm.characters = data.data.results;
+        dm.character = data.data.results[0];
         console.log(data);
       })
   };
@@ -42,16 +40,7 @@ function gsHeroController (MarvelService) {
 
 
 
-  dm.makeSampleRequest = function () {
-    dm.state.connection = {};
-
-    // ping a known-good endpoint
-    MarvelService.getCharacters()
-      .then(() => dm.state.connection.success = true)
-      .catch(() => dm.state.connection.error = true)
-      .finally(() => dm.state.connection.complete = true)
-    console.log('Controller query = '+dm.search);
-  };
+  
 
   dm.init();
 }
