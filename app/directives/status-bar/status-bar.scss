@@ -31,6 +31,10 @@
   border-radius: 50%;
 }
 
+.attribution {
+  margin-left: 10px;
+}
+
 @each $contextual-color, $contextual-color-variables in $contextual-colors {
 
   .status--#{$contextual-color} {

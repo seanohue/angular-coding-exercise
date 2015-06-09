@@ -1,0 +1,20 @@
+gs-status-bar(ng-model='dm.state.connection')
+div.container-fluid
+  div.row
+    div.col-md-6
+      div.name(ng-if='dm.state.connection.complete')
+        h1 {{dm.character.name}}
+  div.row
+    div.col-md-4
+      img(ng-src='{{dm.portrait()}}')
+    div.col-md-3
+      h4 {{dm.describe()}}
+      div.status
+        h4 Relationship Status:
+        p Single and Ready to Mingle
+  div.row   
+    div.col-md-6 
+      a.back(ng-click="dm.back()") Back to Index
+      
+
+       

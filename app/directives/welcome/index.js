@@ -15,19 +15,20 @@ import { name as StatusBarModule } from 'directives/status-bar';
 import './welcome.scss';
 
 /* @ngInject */
-function gsWelcomeController (MarvelService) {
+function gsWelcomeController (MarvelService, $state) {
   const dm = this;
   dm.state = {};
   dm.search = '';
   dm.searched = false;
   dm.characters = {};
+  dm.service = MarvelService;
 
   dm.init = function () {
     setTimeout(dm.makeSampleRequest, 1000); // for dramatic effect
   };
 
   dm.makeRequest = function () {
-    MarvelService.searchCharacters(dm.search)
+    dm.service.searchCharacters(dm.search)
       .success (function (data) {
         dm.characters = data.data.results;
         console.log(data);
@@ -35,18 +36,19 @@ function gsWelcomeController (MarvelService) {
   };
 
   dm.noResults = function () {
-    console.log(dm.characters.length + '' + dm.searched);
-    console.log((dm.characters.length === 0) && dm.searched)
     return (dm.characters.length === 0) && dm.searched;
   };
 
-
+  dm.setCharacter = function (id) {
+    dm.service.setCharacter(id);
+    $state.go('hero');
+  };
 
   dm.makeSampleRequest = function () {
     dm.state.connection = {};
 
     // ping a known-good endpoint
-    MarvelService.getCharacters()
+    dm.service.getCharacters()
       .then(() => dm.state.connection.success = true)
       .catch(() => dm.state.connection.error = true)
       .finally(() => dm.state.connection.complete = true)
