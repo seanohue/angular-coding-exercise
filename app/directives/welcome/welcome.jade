@@ -3,9 +3,10 @@ div.container-fluid
   div.row
     div.col-md-6.col-md-push-3
       div.welcome
+      h4 Find the hero you deserve... or the villain to conquer your heart.
       form(name="search", method="post")
         div.input.search
-          span.label.search Search by Character Name
+          span.search Search by Character Name
           input(type="text", name="search", ng-model="dm.search")
           span.actions
             input(type="submit", value="Search", ng-click="dm.makeRequest(); dm.searched=true")

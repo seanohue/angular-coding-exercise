@@ -61,11 +61,11 @@ function config ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('welcome', {
       url : '/',
-      template : '<gs-welcome title="Marvel Hero-Finder"></gs-welcome>'
+      template : '<gs-welcome title="Marvelous Love"></gs-welcome>'
     })
     .state('hero', {
       url : '/hero',
-      template : '<gs-hero title="Hero Profile"></gs-hero>'
+      template : '<gs-hero title="Profile"></gs-hero>'
     });
   $urlRouterProvider.otherwise('/');
 }
