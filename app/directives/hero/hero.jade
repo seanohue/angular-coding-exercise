@@ -12,6 +12,11 @@ div.container-fluid
       div.status
         h4 Relationship Status:
         p Single and Ready to Mingle
+    div.col-md-3
+      h4 Appearances
+    div.col-md-4
+      h6.comic(ng-repeat='series in dm.character.series.items | limitTo: 10') 
+        a(href='series.resourceURI'){{series.name}}
   div.row   
     div.col-md-6 
       a.back(ng-click="dm.back()") Back to Index
