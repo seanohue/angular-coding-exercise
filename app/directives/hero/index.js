@@ -75,8 +75,8 @@ function gsHeroController (MarvelService,$state) {
   };
 
   dm.noAppearances = function () {
-    console.log(dm.character.series.items.length() === 0);
-    return (dm.character.series.items.length() === 0);
+    console.log(dm.character.series.items.length === 0);
+    return (dm.character.series.items.length === 0);
   };
 
   dm.init();
