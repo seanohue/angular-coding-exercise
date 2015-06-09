@@ -19,29 +19,37 @@ function gsHeroController (MarvelService) {
   const dm = this;
   dm.state = {};
   dm.character = {};
-
+  dm.service = MarvelService;
 
   dm.init = function () {
-   dm.makeRequest(MarvelService._charID);
-   console.log(character);
+    var selection = dm.service.getSelectedChar();
+    setTimeout(dm.makeRequest(selection), 1000); 
   };
 
   dm.portrait = function () {
+    
+    //if (dm.character.thumbnail.path === '')
     var url = [
         dm.character.thumbnail.path,
-        'portrait_uncanny',
+        '/portrait_uncanny.',
         dm.character.thumbnail.extension
       ].join('');
       console.log(url);
     return url;
-  }
+  };
 
   dm.makeRequest = function (charID) {
-    MarvelService.getCharacterById(charID)
-      .success (function (data) {
-        dm.character = data.data.results[0];
+    dm.state.connection = {};
+    console.log('attempting to get information...');
+    dm.service.getCharacterById(charID)
+      .then(function (data) {
         console.log(data);
-      })
+        dm.character = data.data.data.results[0];
+        console.log(dm.character);
+       })
+      .then(() => dm.state.connection.success = true)
+      .catch(() => dm.state.connection.error = true)
+      .finally(() => dm.state.connection.complete = true)      
   };
 
   dm.noResults = function () {
@@ -50,9 +58,13 @@ function gsHeroController (MarvelService) {
     return (dm.characters.length === 0) && dm.searched;
   };
 
+  dm.makeSampleRequest = function () {
+    dm.state.connection = {};
 
-
-  
+    // ping a known-good endpoint
+    dm.service.getCharacters()
+    console.log('Controller query = '+dm.search);
+  };
 
   dm.init();
 }
