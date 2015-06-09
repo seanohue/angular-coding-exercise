@@ -4,8 +4,9 @@ div.container-fluid
     div.col-md-6.col-md-push-3
       div.profile(ng-if='dm.state.connection.complete')
         h1 {{dm.character.name}}
-        p {{dm.character.description}}
+        p {{dm.describe()}}
         img(ng-src='{{dm.portrait()}}')
+      a.back(ng-click="dm.back()") Back to Index
       
 
        

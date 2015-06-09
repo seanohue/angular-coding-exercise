@@ -15,7 +15,7 @@ import { name as StatusBarModule } from 'directives/status-bar';
 import './hero.scss';
 
 /* @ngInject */
-function gsHeroController (MarvelService) {
+function gsHeroController (MarvelService,$state) {
   const dm = this;
   dm.state = {};
   dm.character = {};
@@ -27,8 +27,6 @@ function gsHeroController (MarvelService) {
   };
 
   dm.portrait = function () {
-    
-    //if (dm.character.thumbnail.path === '')
     var url = [
         dm.character.thumbnail.path,
         '/portrait_uncanny.',
@@ -36,6 +34,18 @@ function gsHeroController (MarvelService) {
       ].join('');
       console.log(url);
     return url;
+  };
+
+  dm.describe = function () {
+    if (dm.character.description === ''){
+      return [
+        dm.character.name,
+        " enjoys long walks on the beach,",
+        " kicking butt with super powers,",
+        " and craft beer."
+        ].join('');
+    }
+    return dm.character.description;
   };
 
   dm.makeRequest = function (charID) {
@@ -52,10 +62,8 @@ function gsHeroController (MarvelService) {
       .finally(() => dm.state.connection.complete = true)      
   };
 
-  dm.noResults = function () {
-    console.log(dm.characters.length + '' + dm.searched);
-    console.log((dm.characters.length === 0) && dm.searched)
-    return (dm.characters.length === 0) && dm.searched;
+  dm.back = function () {
+    $state.go('welcome');
   };
 
   dm.makeSampleRequest = function () {
