@@ -79,6 +79,17 @@ function gsHeroController (MarvelService,$state) {
     return (dm.character.series.items.length === 0);
   };
 
+  dm.flavorText = function () {
+    var seed = Math.floor(Math.random()*4);
+    var statuses = [
+      "Single and ready to mingle.",
+      "Busy fighting evil.",
+      "Conquering your world...",
+      "Heroically complicated."
+    ];
+    return statuses[seed];
+  };
+
   dm.init();
 }
 

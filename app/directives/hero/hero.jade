@@ -11,7 +11,7 @@ div.container-fluid
       h4 {{dm.describe()}}
       div.status
         h4 Relationship Status:
-        p Single and Ready to Mingle
+        p {{dm.flavorText()}}
     div.col-md-3
       h4 Appearances
     div.col-md-4(ng-hide="dm.noAppearances()")
